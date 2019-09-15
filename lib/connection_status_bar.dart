@@ -6,15 +6,15 @@ import 'dart:io';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
-class ConnectionStatus extends StatefulWidget {
+class ConnectionStatusBar extends StatefulWidget {
   final Widget title;
   final Color color;
-  ConnectionStatus({this.title, this.color, Key key}) : super(key: key);
+  ConnectionStatusBar({this.title, this.color, Key key}) : super(key: key);
 
-  _ConnectionStatusState createState() => _ConnectionStatusState();
+  _ConnectionStatusBarState createState() => _ConnectionStatusBarState();
 }
 
-class _ConnectionStatusState extends State<ConnectionStatus> with SingleTickerProviderStateMixin {
+class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTickerProviderStateMixin {
   StreamSubscription _connectionChangeStream;
   bool _hasConnection = true;
   AnimationController controller;
