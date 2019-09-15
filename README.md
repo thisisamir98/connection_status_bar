@@ -9,7 +9,7 @@ A widget that animates when internet connection changes
 add it to your dependecies then use it anywhere on your app, usually in a widget that is on top of all of your widgets.
 
 ```dart
-ConnectionStatus(
+ConnectionStatusBar(
     // default title
     title: Text(
         'Please check your internet connection',
