@@ -76,7 +76,7 @@ class _ConnectionStatusSingleton {
 
   static _ConnectionStatusSingleton getInstance() => _singleton;
 
-  bool hasConnection = false;
+  bool hasConnection = true;
 
   StreamController<bool> connectionChangeController = StreamController.broadcast();
 
