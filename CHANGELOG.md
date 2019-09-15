@@ -1,3 +1,7 @@
+## [0.0.4] - 2019 15 September
+
+- fix initial connection check
+
 ## [0.0.3] - 2019 15 September
 
 - update docs
