@@ -1,6 +1,6 @@
 name: connection_status_bar
 description: A widget that animates when internet connection changes.
-version: 0.0.2
+version: 0.0.3
 author: Bardia Rastin <a.rastin98@gmail.com>
 homepage: https://github.com/bardiarastin/connection_status_bar.git
 
