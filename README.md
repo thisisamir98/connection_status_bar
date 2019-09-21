@@ -10,11 +10,16 @@ add it to your dependecies then use it anywhere on your app, usually in a widget
 
 ```dart
 ConnectionStatusBar(
-    // default title
-    title: Text(
-        'Please check your internet connection',
-        style: TextStyle(color: Colors.white, fontSize: 14),
+    height = 25, // double: default height
+    width = double.maxFinite, // double: default width
+    color = Colors.redAccent, // Color: default background color
+    endOffset = const Offset(0.0, 0.0), // Offset: default animation start point offset
+    beginOffset = const Offset(0.0, -1.0), // Offset: default animation finish point offset
+    animationDuration = const Duration(milliseconds: 200), // Duration: default animation duration
+    // Text: default text
+    title = const Text(
+      'Please check your internet connection',
+      style: TextStyle(color: Colors.white, fontSize: 14),
     ),
-    color: Colors.redAccent, // default color
 ),
 ```
