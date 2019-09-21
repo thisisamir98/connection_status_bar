@@ -7,9 +7,27 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
 class ConnectionStatusBar extends StatefulWidget {
-  final Widget title;
   final Color color;
-  ConnectionStatusBar({this.title, this.color, Key key}) : super(key: key);
+  final Widget title;
+  final double width;
+  final double height;
+  final Offset endOffset;
+  final Offset beginOffset;
+  final Duration animationDuration;
+
+  ConnectionStatusBar({
+    Key key,
+    this.height = 25,
+    this.width = double.maxFinite,
+    this.color = Colors.redAccent,
+    this.endOffset = const Offset(0.0, 0.0),
+    this.beginOffset = const Offset(0.0, -1.0),
+    this.animationDuration = const Duration(milliseconds: 200),
+    this.title = const Text(
+      'Please check your internet connection',
+      style: TextStyle(color: Colors.white, fontSize: 14),
+    ),
+  }) : super(key: key);
 
   _ConnectionStatusBarState createState() => _ConnectionStatusBarState();
 }
@@ -25,9 +43,9 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
     _ConnectionStatusSingleton connectionStatus = _ConnectionStatusSingleton.getInstance();
     connectionStatus.initialize();
     _connectionChangeStream = connectionStatus.connectionChange.listen(_connectionChanged);
-    controller = AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    controller = AnimationController(vsync: this, duration: widget.animationDuration);
 
-    offset = Tween<Offset>(begin: Offset(0.0, -1.0), end: Offset(0.0, 0.0)).animate(controller);
+    offset = Tween<Offset>(begin: widget.beginOffset, end: widget.endOffset).animate(controller);
     super.initState();
   }
 
@@ -45,16 +63,11 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
         child: SafeArea(
           bottom: false,
           child: Container(
-            color: widget.color != null ? widget.color : Colors.redAccent,
-            width: double.maxFinite,
-            height: 25,
+            color: widget.color,
+            width: widget.width,
+            height: widget.height,
             child: Center(
-              child: widget.title != null
-                  ? widget.title
-                  : Text(
-                      'Please check your internet connection',
-                      style: TextStyle(color: Colors.white, fontSize: 14),
-                    ),
+              child: widget.title,
             ),
           ),
         ),
