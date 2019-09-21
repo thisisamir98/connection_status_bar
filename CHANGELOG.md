@@ -1,3 +1,8 @@
+## [1.0.0] - 2019 21 September
+
+- first stable release
+- add more customizable options
+
 ## [0.0.4] - 2019 15 September
 
 - fix initial connection check
