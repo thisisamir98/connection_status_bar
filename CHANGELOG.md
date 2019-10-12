@@ -1,3 +1,7 @@
+## [1.1.0] - 2019 12 October
+
+- add ability to set look up address
+
 ## [1.0.0] - 2019 21 September
 
 - first stable release
