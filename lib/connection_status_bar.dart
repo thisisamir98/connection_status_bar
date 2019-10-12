@@ -14,6 +14,7 @@ class ConnectionStatusBar extends StatefulWidget {
   final Offset endOffset;
   final Offset beginOffset;
   final Duration animationDuration;
+  final String lookUpAddress;
 
   ConnectionStatusBar({
     Key key,
@@ -23,6 +24,7 @@ class ConnectionStatusBar extends StatefulWidget {
     this.endOffset = const Offset(0.0, 0.0),
     this.beginOffset = const Offset(0.0, -1.0),
     this.animationDuration = const Duration(milliseconds: 200),
+    this.lookUpAddress = 'google.com',
     this.title = const Text(
       'Please check your internet connection',
       style: TextStyle(color: Colors.white, fontSize: 14),
@@ -41,7 +43,7 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
   @override
   void initState() {
     _ConnectionStatusSingleton connectionStatus = _ConnectionStatusSingleton.getInstance();
-    connectionStatus.initialize();
+    connectionStatus.initialize(widget.lookUpAddress);
     _connectionChangeStream = connectionStatus.connectionChange.listen(_connectionChanged);
     controller = AnimationController(vsync: this, duration: widget.animationDuration);
 
@@ -84,6 +86,7 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
 }
 
 class _ConnectionStatusSingleton {
+  String _lookUpAddress;
   static final _ConnectionStatusSingleton _singleton = _ConnectionStatusSingleton._internal();
   _ConnectionStatusSingleton._internal();
 
@@ -95,7 +98,8 @@ class _ConnectionStatusSingleton {
 
   final Connectivity _connectivity = Connectivity();
 
-  void initialize() {
+  void initialize(String lookUpAddress) {
+    this._lookUpAddress = lookUpAddress;
     _connectivity.onConnectivityChanged.listen(_connectionChange);
     checkConnection();
   }
@@ -111,10 +115,11 @@ class _ConnectionStatusSingleton {
   }
 
   Future<bool> checkConnection() async {
+    assert(_lookUpAddress != null || _lookUpAddress != '');
     bool previousConnection = hasConnection;
 
     try {
-      final result = await InternetAddress.lookup('google.com');
+      final result = await InternetAddress.lookup(_lookUpAddress);
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
         hasConnection = true;
       } else {
