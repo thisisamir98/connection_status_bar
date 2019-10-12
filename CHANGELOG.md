@@ -1,3 +1,7 @@
+## [1.1.1] - 2019 12 October
+
+- update look up docs
+
 ## [1.1.0] - 2019 12 October
 
 - add ability to set look up address
