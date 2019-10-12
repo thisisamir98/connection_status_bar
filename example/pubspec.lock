@@ -32,10 +32,10 @@ packages:
   connection_status_bar:
     dependency: "direct dev"
     description:
-      name: connection_status_bar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
+      path: ".."
+      relative: true
+    source: path
+    version: "1.0.0"
   connectivity:
     dependency: transitive
     description:
