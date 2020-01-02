@@ -1,4 +1,4 @@
-## [1.1.1] - 2020 2 January
+## [1.1.2] - 2020 2 January
 
 - update connectivity dependency
 
