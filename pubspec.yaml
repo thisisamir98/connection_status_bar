@@ -1,6 +1,6 @@
 name: connection_status_bar
 description: customizable flutter widget that animates when internet connection changes.
-version: 1.1.1
+version: 1.1.2
 author: Bardia Rastin <a.rastin98@gmail.com>
 homepage: https://github.com/bardiarastin/connection_status_bar.git
 
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  connectivity: ^0.4.4
+  connectivity: ^0.4.6+1
 
 dev_dependencies:
   flutter_test:

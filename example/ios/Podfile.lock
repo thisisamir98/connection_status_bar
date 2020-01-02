@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios"
 
 SPEC CHECKSUMS:
-  connectivity: c72716e202a1225ec4810740d5cb56b8ae3bf4cc
+  connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 

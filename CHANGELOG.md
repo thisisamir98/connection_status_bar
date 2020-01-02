@@ -1,3 +1,7 @@
+## [1.1.1] - 2020 2 January
+
+- update connectivity dependency
+
 ## [1.1.1] - 2019 12 October
 
 - update look up docs
