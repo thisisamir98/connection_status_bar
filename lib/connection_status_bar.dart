@@ -34,7 +34,8 @@ class ConnectionStatusBar extends StatefulWidget {
   _ConnectionStatusBarState createState() => _ConnectionStatusBarState();
 }
 
-class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTickerProviderStateMixin {
+class _ConnectionStatusBarState extends State<ConnectionStatusBar>
+    with SingleTickerProviderStateMixin {
   StreamSubscription _connectionChangeStream;
   bool _hasConnection = true;
   AnimationController controller;
@@ -42,12 +43,16 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
 
   @override
   void initState() {
-    _ConnectionStatusSingleton connectionStatus = _ConnectionStatusSingleton.getInstance();
+    _ConnectionStatusSingleton connectionStatus =
+        _ConnectionStatusSingleton.getInstance();
     connectionStatus.initialize(widget.lookUpAddress);
-    _connectionChangeStream = connectionStatus.connectionChange.listen(_connectionChanged);
-    controller = AnimationController(vsync: this, duration: widget.animationDuration);
+    _connectionChangeStream =
+        connectionStatus.connectionChange.listen(_connectionChanged);
+    controller =
+        AnimationController(vsync: this, duration: widget.animationDuration);
 
-    offset = Tween<Offset>(begin: widget.beginOffset, end: widget.endOffset).animate(controller);
+    offset = Tween<Offset>(begin: widget.beginOffset, end: widget.endOffset)
+        .animate(controller);
     super.initState();
   }
 
@@ -67,7 +72,7 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
           child: Container(
             color: widget.color,
             width: widget.width,
-            height: widget.height,
+            height: _hasConnection ? 0 : widget.height,
             child: Center(
               child: widget.title,
             ),
@@ -87,14 +92,16 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
 
 class _ConnectionStatusSingleton {
   String _lookUpAddress;
-  static final _ConnectionStatusSingleton _singleton = _ConnectionStatusSingleton._internal();
+  static final _ConnectionStatusSingleton _singleton =
+      _ConnectionStatusSingleton._internal();
   _ConnectionStatusSingleton._internal();
 
   static _ConnectionStatusSingleton getInstance() => _singleton;
 
   bool hasConnection = true;
 
-  StreamController<bool> connectionChangeController = StreamController.broadcast();
+  StreamController<bool> connectionChangeController =
+      StreamController.broadcast();
 
   final Connectivity _connectivity = Connectivity();
 
