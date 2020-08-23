@@ -11,6 +11,7 @@ class ConnectionStatusBar extends StatefulWidget {
   final Widget title;
   final double width;
   final double height;
+  final double collapsedHeight;
   final Offset endOffset;
   final Offset beginOffset;
   final Duration animationDuration;
@@ -19,6 +20,7 @@ class ConnectionStatusBar extends StatefulWidget {
   ConnectionStatusBar({
     Key key,
     this.height = 25,
+    this.collapsedHeight,
     this.width = double.maxFinite,
     this.color = Colors.redAccent,
     this.endOffset = const Offset(0.0, 0.0),
@@ -67,7 +69,7 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
           child: Container(
             color: widget.color,
             width: widget.width,
-            height: widget.height,
+            height: _hasConnection ? widget.height : widget.collapsedHeight ?? widget.height,
             child: Center(
               child: widget.title,
             ),

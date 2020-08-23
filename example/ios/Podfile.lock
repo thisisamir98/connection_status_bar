@@ -7,23 +7,23 @@ PODS:
 
 DEPENDENCIES:
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `Flutter`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Reachability
 
 EXTERNAL SOURCES:
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: Flutter
 
 SPEC CHECKSUMS:
-  connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
+  connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: 10ae9c18d12c9ffc2275c9a159a3b1e281990db0
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.3

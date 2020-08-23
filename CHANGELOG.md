@@ -1,3 +1,7 @@
+## [1.1.4] - 2020 2 January
+
+- Add collapsedHeight
+
 ## [1.1.3] - 2020 2 January
 
 - update connectivity dependency
