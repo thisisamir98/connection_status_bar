@@ -1,3 +1,7 @@
+## [1.1.5] - 2021 14 April
+
+- Null Safety
+
 ## [1.1.4] - 2020 2 January
 
 - Add collapsedHeight
