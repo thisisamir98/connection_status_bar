@@ -11,14 +11,14 @@ class ConnectionStatusBar extends StatefulWidget {
   final Widget title;
   final double width;
   final double height;
-  final double collapsedHeight;
+  final double? collapsedHeight;
   final Offset endOffset;
   final Offset beginOffset;
   final Duration animationDuration;
   final String lookUpAddress;
 
   ConnectionStatusBar({
-    Key key,
+    Key? key,
     this.height = 25,
     this.collapsedHeight,
     this.width = double.maxFinite,
@@ -37,10 +37,10 @@ class ConnectionStatusBar extends StatefulWidget {
 }
 
 class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTickerProviderStateMixin {
-  StreamSubscription _connectionChangeStream;
+  late StreamSubscription _connectionChangeStream;
   bool _hasConnection = true;
-  AnimationController controller;
-  Animation<Offset> offset;
+  late AnimationController controller;
+  late Animation<Offset> offset;
 
   @override
   void initState() {
@@ -88,7 +88,7 @@ class _ConnectionStatusBarState extends State<ConnectionStatusBar> with SingleTi
 }
 
 class _ConnectionStatusSingleton {
-  String _lookUpAddress;
+  String? _lookUpAddress;
   static final _ConnectionStatusSingleton _singleton = _ConnectionStatusSingleton._internal();
   _ConnectionStatusSingleton._internal();
 
@@ -121,7 +121,7 @@ class _ConnectionStatusSingleton {
     bool previousConnection = hasConnection;
 
     try {
-      final result = await InternetAddress.lookup(_lookUpAddress);
+      final result = await InternetAddress.lookup(_lookUpAddress!);
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
         hasConnection = true;
       } else {
