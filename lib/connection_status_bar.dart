@@ -3,7 +3,7 @@ library connection_status_bar;
 import 'dart:async';
 import 'dart:io';
 
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 class ConnectionStatusBar extends StatefulWidget {
